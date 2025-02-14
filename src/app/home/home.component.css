@@ -1,40 +1,93 @@
 .results {
   display: grid;
-  column-gap: 14px;
-  row-gap: 14px;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
-  margin-top: 50px;
-  justify-content: space-around;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.search-container {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding: 0 1rem;
+}
+
+form {
+  display: flex;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 input[type="text"] {
-  border: solid 1px var(--primary-color);
-  padding: 10px;
-  border-radius: 8px;
-  margin-right: 4px;
-  display: inline-block;
-  width: 30%;
+  flex: 1;
+  border: 2px solid #e2e8f0;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: white;
 }
 
-button {
-  padding: 10px;
-  border: solid 1px var(--primary-color);
-  background: var(--primary-color);
+input[type="text"]:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+input[type="text"]::placeholder {
+  color: #94a3b8;
+}
+
+button.primary {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: #3b82f6;
   color: white;
-  border-radius: 8px;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
-@media (min-width: 500px) and (max-width: 768px) {
+button.primary:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+button.primary:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
   .results {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0.5rem;
   }
+
+  form {
+    flex-direction: column;
+  }
+
   input[type="text"] {
-    width: 70%;
+    width: 100%;
+  }
+
+  button.primary {
+    width: 100%;
   }
 }
 
-@media (max-width: 499px) {
+@media (max-width: 480px) {
   .results {
-    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .search-container {
+    margin-top: 1rem;
   }
 }

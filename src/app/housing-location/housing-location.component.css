@@ -1,31 +1,76 @@
 .listing {
-  background: var(--accent-color);
-  border-radius: 30px;
-  padding-bottom: 30px;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
 }
+
+.listing:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
 .listing-heading {
-  color: var(--primary-color);
-  padding: 10px 20px 0 20px;
+  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 1.25rem 1.25rem 0.5rem;
+  margin: 0;
 }
+
 .listing-photo {
   height: 250px;
   width: 100%;
   object-fit: cover;
-  border-radius: 30px 30px 0 0;
-}
-.listing-location {
-  padding: 10px 20px 20px 20px;
-}
-.listing-location::before {
-  content: url("/assets/location-pin.svg") / "";
+  transition: transform 0.3s ease;
 }
 
-section.listing a {
-  padding-left: 20px;
-  text-decoration: none;
-  color: var(--primary-color);
+.listing:hover .listing-photo {
+  transform: scale(1.03);
 }
-section.listing a::after {
-  content: "\203A";
-  margin-left: 5px;
+
+.listing-location {
+  padding: 0 1.25rem 1.25rem;
+  color: #64748b;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.listing-location::before {
+  content: "📍";
+  font-size: 1rem;
+}
+
+.listing a {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  margin: 0 1.25rem 1.25rem;
+  text-decoration: none;
+  color: #3b82f6;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  background: #eff6ff;
+  transition: all 0.2s ease;
+}
+
+.listing a:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+.listing a::after {
+  content: "→";
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.listing a:hover::after {
+  transform: translateX(4px);
 }
